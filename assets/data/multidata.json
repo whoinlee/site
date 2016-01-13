@@ -1,0 +1,33 @@
+{
+ "thumbs":[
+        {"id":"01",
+         "title": "Light Up (Light and Movement #1)",
+         "desc": "Puzzle data from NY Times crossword puzzle 09/2000~02/2002",
+         "detailHeader1": "Light Up",
+         "detailDesc1": "Real-time Director movie projected on 52-Inch screen.",
+         "detailHeader2": "Light Up",
+         "detailDesc2": "MFA Computer Art Show, Visual Arts Gallery, 6/1~6/15 2002",
+         "detailHeader3": "Light Up",
+         "detailDesc3": "The movement of black and white cells and randomly selected words of human emotion: joy, anger, sorrow, and pleasure.",
+         "detailHeader4": "Light Up",
+         "detailDesc4": "\"Mind is like a chess board consists of black and white emotions. When these emotions get perfectly integrated with no distinction, a light circle is created in the center of the mind. There is a fleeting moment that I see the light and its movement reflected in the ordinary things around me, then I try to catch it as if I try to catch the moon reflected in the water.\""
+        },
+        {"id":"02",
+         "title": "VariationBW0101-V",
+         "desc": "Clips from 1988 Winter Olympics: Illia Kulik and Michelle Kwan",
+         "detailHeader1": "VariationBW0101-V",
+         "detailDesc1": "System Requirement: DVD player, 5.6-Inch LCD.",
+         "detailHeader2": "VariationBW0101-V",
+         "detailDesc2": "Hypervisualizations, Westside Gallery, 2/14~3/17 2001",
+         "detailHeader3": "VariationBW0101-V",
+         "detailDesc3": "The harmony of polarities: black and white, 0 and 1, fast and slow, sharp and soft, male and female, and order and disorder.",
+         "detailHeader4": "",
+         "detailDesc4": ""},
+        {"id":"03",
+         "title": "World Map",
+         "desc": "360 degree rotatable world map with the world clock for each longitude"},
+        {"id":"04",
+         "title": "Scarlet Letters",
+         "desc": "Create your own digital painting with scarlet numbers"}
+    ]
+}

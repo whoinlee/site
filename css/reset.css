@@ -1,0 +1,118 @@
+/*
+		RESET - based upon yahoo yui reset:
+
+		Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+		Code licensed under the BSD License:
+		http://developer.yahoo.net/yui/license.txt
+		version: 2.2.0
+*/
+
+			body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td
+				{ margin: 0; padding: 0; }
+			table
+				{ border-collapse: collapse; border-spacing: 0; }
+			fieldset,img
+				{ border: 0;}
+			address,caption,cite,code,dfn,em,strong,th,var
+				{ font-style: normal; font-weight: normal; }
+			ol,ul
+				{ list-style: none; }
+			caption,th
+				{ text-align: left; }
+			h1,h2,h3,h4,h5,h6
+				{ font-size: 100%; font-weight: normal; }
+			q:before,q:after
+				{ content: ''; }
+			abbr,acronym
+				{ border: 0; }
+			iframe 
+				{ border: 0px;
+				  width: 1px;
+				  height: 1px; }	
+			   
+
+
+/*-------------------------------------
+	GLOBAL TYPE METRICS
+--------------------------------------*/
+
+			body
+				{ font-size: 11px; line-height: 1.4em; font-family: arial; color: rgb(77, 77, 77); }
+			a,abbr,acronym,address,blockquote,body,caption,code,cite,dd,dfn,div,dl,dt,em,fieldset,form,h1,h2,h3,h4,h5,h6,img,input,li,ol,p,pre,strong,table,td,textarea,th,ul,var
+				{ font-size: inherit; line-height: inherit; }
+			a   { color: #0DAE2B; outline: none; }
+
+
+
+/*-------------------------------------
+	GLOBAL SITE STYLING AREA
+--------------------------------------*/
+
+			body {  }
+
+/*-------------------------------------
+	JSCROLLPANE CSS - http://www.kelvinluck.com/assets/jquery/jScrollPane/styles/jScrollPane.css
+--------------------------------------*/
+
+			.jScrollPaneContainer {
+				position: relative;
+				overflow: hidden;
+				z-index: 1;
+			}
+			.jScrollPaneTrack {
+				position: absolute;
+				cursor: pointer;
+				right: 0;
+				top: 0;
+				height: 100%;
+				background: #aaa;
+			}
+			.jScrollPaneDrag {
+				position: absolute;
+				background: #666;
+				cursor: pointer;
+				overflow: hidden;
+			}
+			.jScrollPaneDragTop {
+				position: absolute;
+				top: 0;
+				left: 0;
+				overflow: hidden;
+			}
+			.jScrollPaneDragBottom {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				overflow: hidden;
+			}
+			a.jScrollArrowUp {
+				display: block;
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				text-indent: -2000px;
+				overflow: hidden;
+				/*background-color: #666;*/
+				height: 9px;
+			}
+			a.jScrollArrowUp:hover {
+				/*background-color: #f60;*/
+			}
+			a.jScrollArrowDown {
+				display: block;
+				position: absolute;
+				z-index: 1;
+				bottom: 0;
+				right: 0;
+				text-indent: -2000px;
+				overflow: hidden;
+				/*background-color: #666;*/
+				height: 9px;
+			}
+			a.jScrollArrowDown:hover {
+				/*background-color: #f60;*/
+			}
+			a.jScrollActiveArrowButton, a.jScrollActiveArrowButton:hover {
+				/*background-color: #f00;*/
+			}

@@ -1,0 +1,371 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+	<title>WhoIN Lee</title>
+	<meta name="description" content="WhoIN Lee's portfolio site" />
+	<meta name="author" content="WhoIN Lee" />
+	<meta name="keywords" content="WhoIN Lee, Whoin Lee, Portfolio" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="shortcut icon" href="assets/image/favicon.ico" />
+    <link rel="stylesheet" href="css/site.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/tooltipster.css" type="text/css" />
+	
+    <!--tweenjs.js should come before movieclip.js for avoiding createjs.Tween is undefined-->
+	<script src="js/libs/createjs/easeljs-0.6.1.min.js"></script> <!-- need? -->
+    <script src="js/libs/createjs/tweenjs-0.4.1.min.js"></script>
+    <script src="js/libs/createjs/movieclip-0.6.1.min.js"></script>
+    <script src="js/libs/createjs/preloadjs-0.4.1.min.js"></script>
+    <script src="js/libs/jquery/jquery-1.10.1.min.js"></script>
+    <script src="js/libs/jquery/jquery.easing.1.3.js"></script>
+    <script src="js/libs/jquery/jquery.scrollTo-min.js"></script>
+    <script src="js/libs/jquery/jquery.slides.js"></script>
+    <script type="text/javascript" src="js/libs/jquery/jquery.tooltipster.min.js"></script>
+    <!-- -->  
+    <script src="js/libs/class.js"></script>
+    <script src="js/libs/utils.js"></script>
+    <script src="js/libs/TweenMax.min.js"></script>
+    <!--<script src="js/libs/modernizr-2.5.3.js"></script>--> 
+    <!-- --> 
+    <script src="js/site.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/Thumb.js"></script>
+    <script src="js/TextLink.js"></script>
+    <script src="js/TextMenu.js"></script>
+    <script src="js/ScrollBar.js"></script>
+    <script src="js/ScrollPane.js"></script>
+    <script src="js/multimedia.js"></script>
+    <script src="js/webmedia.js"></script>
+    <script src="js/info.js"></script>
+    <!-- -->
+    <script src="js/libs/swfobject.js"></script>
+
+    <script type="text/javascript">
+        var embedTweetTweet = function() {
+            var flashvars = {
+                gettingData: "true",
+                tweetDelay: "15000",
+                isLocal: "false"
+            }
+            var params = {
+                base : "swf/",
+                wmode: "window",
+                allowscriptaccess : "always"
+            }
+            var attributes = {
+                id: "tweetFlash",
+                name: "tweetFlash"
+            }
+            swfobject.embedSWF("swf/tweetTweet.swf", "twitterBody", "530", "35", "9.0", "swf/expressInstall.swf", flashvars, params, attributes);
+        }
+        var emptyTweetTweet = function() {
+            $("#twitterBody").empty();
+        }
+        swfobject.addDomLoadEvent(embedTweetTweet);
+        
+        <!-- ---------------------------- -->
+        <!-- multimedia project embedding -->
+        <!-- ---------------------------- -->
+        //Please check old code for this section
+
+		<!-- ---------------------------- -->
+        <!-- info/contact movie embedding -->
+        <!-- ---------------------------- -->
+        var embedContactMovie = function() {
+            var c = document.getElementById("contactFlash");
+            if (!c) {
+                var d=document.createElement("div");
+                d.setAttribute("id", "contactFlash");
+                document.getElementById("contactMovie").appendChild(d);
+            }
+            var flashvars = {}
+            var params = {
+                base : "swf/",
+                bgcolor: "#000000",
+                wmode: "window",
+                allowscriptaccess : "always"
+            }
+            var attributes = {}
+            swfobject.embedSWF("swf/contact.swf", "contactFlash", "440", "440", "9.0", "swf/expressInstall.swf", flashvars, params, attributes);
+        }
+        var emptyContactMovie = function() {
+            swfobject.removeSWF("contactFlash");
+        }
+
+        //var tweetFlash = swfobject.getObjectById("tweetFlash");
+        //var isTweetPlaying = true;     //why? it's not recognized inside of functions
+        function stopTweetFlash()
+        {
+            //var tweetFlash = document.getElementById("tweetFlash");
+            var tweetFlash = swfobject.getObjectById("tweetFlash");
+            if (tweetFlash) {
+                alert("stopTweetFlash, tweetFlash is " + tweetFlash);
+                tweetFlash.stop();
+            }
+        }
+        function playTweetFlash()
+        {
+            //var tweetFlash = document.getElementById("tweetFlash");
+            var tweetFlash = swfobject.getObjectById("tweetFlash");
+            if (tweetFlash) {
+                alert("playTweetFlash, tweetFlash is " + tweetFlash);
+                tweetFlash.play();
+            }
+            //alert("playTweetFlash");
+        }
+    </script>
+    <script type="text/javascript">
+        //var totalSlide = $("#slides").children().length;    //this value is 0 if set here
+        var totalSlide = 40;
+        // var inst1Slide = 4;
+        // var inst2Slide = 4;
+        $(function() {
+          $('#slides').slidesjs({
+            width: 529,
+            height: 484,
+            pagination: {
+                active: true,
+                effect: "fade"
+            },
+            callback: {
+              loaded: function(number1) {
+                console.log('\nINFO index.html :: slides.slidesjs - Loaded with slide #' + number1);
+                //-- Show start slide in log
+                $('#slidesjs-log .slidesjs-slide-number').text(number1);
+                $('.slidesjs-pagination, .slidesjs-navigation').hide();
+
+                if (number1 <10) {
+                    $("div#slidesjs-log").css("left", '79px');
+                } else {
+                    $("div#slidesjs-log").css("left", '74px');
+                }
+              }, //loaded
+              start: function(number1) {
+                console.log('INFO index.html :: slides.slidesjs - Start Animation on slide #' + number1);
+              }, //start
+              complete: function(number1) {
+                console.log('INFO index.html :: slides.slidesjs - Animation Complete. Current slide is #' + number1);
+                //-- Change slide number on animation complete
+                $('#slidesjs-log .slidesjs-slide-number').text(" " + number1);
+
+                if (number1 <10) {
+                    $("div#slidesjs-log").css("left", '79px');
+                } else {
+                    $("div#slidesjs-log").css("left", '74px');
+                }
+
+                var header = getSlideHeader(number1);
+                var desc = getSlideDesc(number1);
+                var link = getSlideLink(number1);
+                $('#slideDesc .detailHeader').text(header);
+                $('#slideDesc .detailDesc a').text(desc);
+
+                if (link == "") {
+                    link = "javascript:void(0);";
+                    $('#slideDesc .detailDesc a').addClass("inactive");
+                    $('#slideDesc .detailDesc a').attr('target', "_self");
+                } else {
+                    $('#slideDesc .detailDesc a').removeClass("inactive");
+                    $('#slideDesc .detailDesc a').attr('target', "_blank");
+                }
+                $('#slideDesc .detailDesc a').attr('href', link);
+              }//complete
+            }
+          });
+          $('.custom-next').click(function(e) {
+              console.log('INFO index.html :: slides.slidesjs - .custom-next.click');
+              e.preventDefault();
+              $('#slides .slidesjs-next').click();
+          });    //next
+          $('.custom-prev').click(function(e) {
+              console.log('INFO index.html :: slides.slidesjs - .custom-prev.click');
+              e.preventDefault();
+              $('#slides .slidesjs-previous').click();
+          });    //prev
+          
+       }); //function
+	</script>
+    
+    <!--CHECK!!!!!!![if lt IE 7 ]>
+	<script src="js/libs/dd_belatedpng.js"></script>
+	<script> DD_belatedPNG.fix('img, .png_bg');</script> -->
+	<![endif]-->
+</head>
+
+<!-- <body onload="homeInit();"> -->
+<body>
+    <!--        -->
+    <div class="loading" id="preloading">
+		<div><span class="value">0</span><span class="percent">%</span></div>
+	</div>
+
+    <!-- Start Overlay -->
+    <div id="overlay"></div>
+    <!-- SpecialBox -->
+    <div id="overlayContentHolder">
+        <div id="overlayContent" class="overlayContentClass">
+            <div id="slides">
+                <!--    -->
+                <img src="assets/image/webmedia/img0_05_0_BMG_529x484.jpg">
+                <img src="assets/image/webmedia/img1_05_1_FirstCom_529x484.jpg">
+                <img src="assets/image/webmedia/img2_05_2_KillerTracks_529x484.jpg">
+                <img src="assets/image/webmedia/img3_05_3_WellTV_529x484.jpg">
+                <img src="assets/image/webmedia/img4_06_0_Premarin_529x484.jpg">
+                <img src="assets/image/webmedia/img5_06_1_Malibu_529x484.jpg">
+                <img src="assets/image/webmedia/img6_06_2_ATT_529x484.jpg">
+                <img src="assets/image/webmedia/img7_06_3_Borders_529x484.jpg">
+                <img src="assets/image/webmedia/img8_07_0_FBSnowball_529x484.jpg">
+                <img src="assets/image/webmedia/img9_07_1_JCP_529x484.jpg">
+                <img src="assets/image/webmedia/img10_07_2_Citi_529x484.jpg">
+                <img src="assets/image/webmedia/img11_07_3_TAG_529x484.jpg">
+                <img src="assets/image/webmedia/img12_08_0_MaxwellHouse_529x484.jpg">
+                <img src="assets/image/webmedia/img13_08_0_Slimfast_529x484.jpg">
+                <img src="assets/image/webmedia/img14_08_1_Dove_529x484.jpg">
+                <img src="assets/image/webmedia/img15_08_2_Enfamil_529x484.jpg">
+                <img src="assets/image/webmedia/img16_08_3_IBM_529x484.jpg">
+                <img src="assets/image/webmedia/img17_08_4_SlimFast_529x484.jpg">
+                <img src="assets/image/webmedia/img18_09_SXR_529x484.jpg">
+                <img src="assets/image/webmedia/img19_09_0_HBO_529x484.jpg">
+                <img src="assets/image/webmedia/img20_09_1_SAP_529x484.jpg">
+                <img src="assets/image/webmedia/img21_09_3_FMG_529x484.jpg">
+                <img src="assets/image/webmedia/img22_09_4_IBMTivoli_529x484.jpg">
+                <img src="assets/image/webmedia/img23_09_5_HolidayCard_529x484.jpg">
+                <img src="assets/image/webmedia/img24_09_2_MH_529x484.jpg">
+                <img src="assets/image/webmedia/img25_10_0_SaraLee_529x484.jpg">
+                <img src="assets/image/webmedia/img26_10_1_SAPCareer_529x484.jpg">
+                <img src="assets/image/webmedia/img27_10_6_TWC_529x484.jpg">
+                <img src="assets/image/webmedia/img28_10_2_OgilvyYoutube_529x484.jpg">
+                <img src="assets/image/webmedia/img29_10_4_Nestle_529x484.jpg">
+                <img src="assets/image/webmedia/img30_10_5_SAP_529x484.jpg">
+                <img src="assets/image/webmedia/img31_10_3_Factoids_529x484.jpg">
+                <img src="assets/image/webmedia/img32_11_0_JED_529x484.jpg">
+                <img src="assets/image/webmedia/img33_11_1_GE_529x484.jpg">
+                <img src="assets/image/webmedia/img34_11_2_IBM_529x484.jpg">
+                <img src="assets/image/webmedia/img35_12_0_OSIAO_529x484.jpg">
+                <img src="assets/image/webmedia/img36_12_1_Subtexter_529x484.jpg">
+                <img src="assets/image/webmedia/img37_13_0_FMG_529x484.jpg">
+                <img src="assets/image/webmedia/img38_14_Zoetis_529x484.jpg">
+                <img src="assets/image/webmedia/img39_14_Xerox_529x484.jpg">
+            </div>
+            <div id="slideClose" class="close"><a onmousedown="Site.toggleOverlay()" href="#" ><img id="closeBtn" src="assets/image/closeBtnNew22x22.png" width="22" height="22" /></a></div>
+            <div id="slideDesc">
+                <p class="detailHeader">FM Global, Ogilvy, 2013</p>
+                <p class="detailDesc"><a href="http://www.fmglobal.com/resilience/" target="_blank">FM Global Resilience Microsite</a></p>
+            </div>
+            <!-- to use custom buttons, they must be in the same container with the slides when class name is .slidesjs-prev/next -->
+            <div id="slideControl" class="slideControl">
+                <ul id="controlList" class="controlList">
+                    <li ><a href="#" class="custom-prev" id="prevLink" ><img id="prevBtn" src="assets/image/leftArrowNew20x23.png" width="20" height="23" /></a></li>
+                    <li ><a href="#" class="custom-next" id="nextLink" ><img id="nextBtn" src="assets/image/rightArrowNew20x23.png" width="20" height="23" /></a></li>
+                </ul>
+                <div id="slidesjs-log" class="slidesjs-log"><span class="slidesjs-slide-number"> 40</span>/<span class="total-slide-number">40</span></div>
+            </div>
+        </div>
+    </div>
+
+	<!-- ///////////////////////////////////////////////// -->
+	<div id="CONTAINER"><!----- #CONTAINER ------------------>
+		<div id="HEADER"><!---- #HEADER    ------------------>
+			<top>
+                <img id="dummyWhite" src="assets/image/top791x1.png" width="791" height="20" />
+                <img id="vBar" src="assets/image/vBar1x20.png" width="1" height="20" />
+            </top>
+            <logo>
+            	<a rel="index" href="#home" class="tooltip" title="Home"></a>
+            </logo>
+            <img id="hBar" src="assets/image/hBar20x1.png" width="20" height="1" />
+            <ul id="menu">
+				<li class="menu"><a rel="section1" hasSub="true" href="#webmedia">WORK</a></li>
+                <li class="subMenu"><a rel="section1" isSub="true" index="0" href="#webmedia" class="tooltip" title="Professional Works">Professional</a></li>
+				<li class="subMenu"><a rel="section1" isSub="false" index="1" href="http://www.whoin.net/?cat=25" class="tooltip" title="Personal Works" target="_blank">Personal (Data Viz)</a></li>
+				<li class="menu"><a rel="section2" hasSub="false" href="#info">INFO</a></li>
+			</ul>
+		</div><!--------------- #HEADER end ----------------->
+        <div id="CONTENT"><!--- #CONTENT -------------------->
+            <!----------------- #CONTENT_HOLDER ------------->
+            <div id="CONTENT_HOLDER">
+            	<div id="main_holder"><!--- #main_holder ---->
+            		<!--//// #home ////-->
+            		<div id="home" class="section">
+                        <div id="homeHeader" class="header" >
+			                <img id="title0" class="title" src="assets/image/titleEmpty.png" />
+                        </div>
+			            <div id="main0" class="main">
+			            	<img src="assets/image/home529x529.png" />
+			            	<!--<canvas id="homeCanvas" width="528" height="530" style="border:1px solid #000000;">-->
+			            	<canvas id="homeCanvas" width="530" height="530">
+			            		Your browser does not support the canvas element.(home)
+			            	</canvas>
+			            </div>
+		            </div>
+
+		            <!--//// #webmedia ////-->
+		            <div id="webmedia" class="section">
+                        <div id="webmediaHeader" class="header" >
+                            <img id="title2" class="title" src="assets/image/titleWebmedia.png" />
+                            <ul id="viewList">
+                                <li><a href="#" id="thumbIcon" class="viewIcon"><img src="assets/image/viewIconThumb.png" width=24px height=24px /></a></li>
+                                <li><a href="#" id="listIcon" class="viewIcon"><img src="assets/image/viewIconList.png" width=24px height=24px /></a></li>
+                            </ul>
+                        </div>
+			            <div id="main2" class="main">
+			            	<!--<img src="assets/image/home529x529.png" />-->
+                            <canvas id="webCanvas" width="530" height="530">
+			            		Your browser does not support the canvas element.(webmedia)
+			            	</canvas>
+			            </div>
+		            </div>
+		            <!--//// #info ////-->
+		            <div id="info" class="section">
+                        <div id="infoHeader" class="header" >
+		            	    <img id="title3" class="title" src="assets/image/titleInfo.png" />
+                        </div>
+			            <div id="main3"  class="main" style="background-color:black;height:529px;width:529px;color:white">
+			            	<div id="contactMovie">
+                                <div id="contactFlash"></div>
+			            		<!--               //-- 396 to 430
+                                <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="430" height="430" id="movie_name" align="middle">
+									<param name="movie" value="swf/contact.swf"/>
+									   <object type="application/x-shockwave-flash" data="swf/contact.swf" width="430" height="430">
+									        <param name="movie" value="swf/contact.swf"/>
+									        <param name="bgcolor" value="#000000">
+									        <a href="http://www.adobe.com/go/getflash">
+									            <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/>
+									        </a>
+									    </object>
+								</object>
+                                -->
+			            	</div>
+			            	<div id="contactInfo">
+			            		<span>WhoIN Lee &nbsp;&nbsp;&nbsp;</span>
+			            		t: +1.917.957.8964&nbsp;&nbsp;
+			            		<a href="mailto:whoin@whoin.net">e: whoinlee@gmail.com</a><br>
+			            	</div>
+			            </div>
+		            </div>
+            	</div><!------------------- #main_holder end -->
+            	<div id="twitter"><!------- #twitter ---------->
+            		<div id="twitterBody"></div>
+            	</div><!------------------- #twitter end ------>
+            </div><!------------- #CONTENT_HOLDER end --------->
+        </div><!----------------- #CONTENT end ---------------->
+        <div id="FOOTER"><!------ #FOOTER --------------------->
+        	<copyright>
+                <p>(c)&nbsp; WhoIN Lee 2015.</p>
+            </copyright>
+		</div><!----------------- #FOOTER  end ---------------->
+	</div><!--------------------- #CONTAINER end ------------>
+	<!-- ///////////////////////////////////////////////// -->
+    <noscript>
+        noscript
+    </noscript>
+</body>
+</html>
