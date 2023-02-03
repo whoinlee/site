@@ -25,7 +25,7 @@ window.onhashchange = function(e) {
 //-- open an overlay for Webmedia
 Site.toggleOverlay = function(number) {
     //toggle the overlay for webmedia slides
-    console.log("INFO siteOnline.js :: Site.toggleOverlay called, number is " + number);
+    //console.log("INFO site.js :: Site.toggleOverlay called, number is " + number);
     //
     var overlay = $("#overlay");
     var contentHolder =  $("#overlayContentHolder");
@@ -34,8 +34,8 @@ Site.toggleOverlay = function(number) {
         overlay.css("display", "none");
         contentHolder.css("display", "none");
     } else {
-        //console.log("overlay is invisible, then open/show");
-        //console.log("INFO site.js :: Site.toggleOverlay - slidenum-"+number);
+        console.log("INFO site.js :: overlay is invisible, then open/show");
+        console.log("INFO site.js :: Site.toggleOverlay - slidenum is " + number);
         //
         $('a[data-slidesjs-item="' + (number-1) + '"]').trigger('click');
         if (number <10) {
@@ -229,7 +229,13 @@ Site.main = function() {
                     "img36_12_1_Subtexter_529x484.jpg",
                     "img37_13_0_FMG_529x484.jpg",
                     "img38_14_Zoetis_529x484.jpg",
-                    "img39_14_Xerox_529x484.jpg"
+                    "img39_14_Xerox_529x484.jpg",
+                    "img40_18_Nbc_529x484.jpg",
+                    "img41_18_Nbc_529x484.jpg",
+                    "img42_22_Cisco_529x484.jpg",
+                    "img43_22_Cisco_529x484.jpg",
+                    "img44_22_Cisco_529x484.jpg",
+                    "img45_22_Cisco_529x484.jpg"
     ];
     var preload;
     var percent;
@@ -260,7 +266,7 @@ Site.main = function() {
     }
 
     function loadAll() {
-        //console.log("INFO site.js :: loadAll");
+        console.log("INFO site.js :: loadAll, manifest.length is " + manifest.length);
         while (manifest.length > 0) {
             loadAnother();
         }      
@@ -275,7 +281,7 @@ Site.main = function() {
 
     // File complete handler
     function handleFileLoad(event) {
-        console.log("INFO siteOnline.js :: handleFileLoad EVER??, event.item.id is " + event.item.id);
+        //console.log("INFO siteOnline.js :: handleFileLoad EVER??, event.item.id is " + event.item.id);
         var img = event.result;
         var endIndex = event.item.id.indexOf("_");
         var id = event.item.id.substring(3, endIndex);
